@@ -1,0 +1,292 @@
+/* RESETEO BÁSICO */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: aliceblue;
+    color: darkslategray;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+.header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header__contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo__icono {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__icono img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+}
+
+.logo__texto h1 {
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+.logo__texto p {
+    font-size: 12px;
+    color: slategray;
+}
+
+/* MENÚ NAV */
+.nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 15px;
+    color: steelblue;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    color: lightseagreen;
+}
+
+/* HERO (IMAGEN GRANDE) */
+.hero {
+    position: relative;
+    height: 380px;
+    background-image: url("../img/imagen.png");
+    background-size: cover;
+    background-position: center top;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.hero__contenido {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    /* texto arriba */
+    padding-top: 40px;
+    /* espacio debajo del menú */
+}
+
+.hero__texto h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.hero__texto p {
+    font-size: 16px;
+    max-width: 460px;
+}
+
+/* BENEFICIOS (CONSULTA / VACUNACIÓN / URGENCIAS) */
+.beneficios {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.beneficios__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.beneficio {
+    background-color: mistyrose;
+    padding: 24px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.beneficio__icono {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.beneficio__icono img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    opacity: 1;
+}
+
+.beneficio h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.beneficio p {
+    font-size: 14px;
+    color: dimgray;
+}
+
+/* SERVICIOS PRINCIPALES */
+.servicios {
+    padding: 20px 0 60px 0;
+}
+
+.servicios__titulo {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.servicios__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.servicio {
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 12px;
+    cursor: pointer;
+}
+
+.servicio__imagen {
+    position: relative;
+    overflow: hidden;
+}
+
+.servicio__imagen img {
+    width: 100%;
+    display: block;
+    height: 150px;
+    object-fit: cover;
+}
+
+.servicio__etiqueta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 12px;
+    color: white;
+}
+
+.servicio__etiqueta--verde {
+    background-color: seagreen;
+}
+
+.servicio__etiqueta--azul {
+    background-color: teal;
+}
+
+.servicio__etiqueta--naranja {
+    background-color: darkorange;
+}
+
+.servicio__etiqueta--morado {
+    background-color: slateblue;
+}
+
+.servicio h3 {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.servicio p {
+    font-size: 13px;
+    padding: 0 10px;
+    color: slategray;
+}
+
+/* FOOTER */
+.footer {
+    background-color: midnightblue;
+    color: ghostwhite;
+    padding: 20px 0;
+}
+
+.footer__contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+}
+
+.footer__info p+p {
+    margin-top: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .header__contenido {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav a {
+        margin-left: 0;
+    }
+
+    .beneficios__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .servicios__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer__contenido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios__grid {
+        grid-template-columns: 1fr;
+    }
+}
