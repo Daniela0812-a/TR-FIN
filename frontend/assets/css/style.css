@@ -11,14 +11,14 @@ body {
     color: darkslategray;
 }
 
-/* CONTENEDOR GENERAL */
+/* Contenedor general */
 .contenedor {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* HEADER */
+
 .header {
     background-color: white;
     position: sticky;
@@ -33,7 +33,7 @@ body {
     padding: 12px 0;
 }
 
-/* LOGO */
+
 .logo {
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@ body {
     color: slategray;
 }
 
-/* MENÚ NAV */
+
 .nav a {
     margin-left: 20px;
     text-decoration: none;
@@ -85,6 +85,7 @@ body {
     background-size: cover;
     background-position: center top;
 }
+
 
 .hero__overlay {
     position: absolute;
@@ -112,7 +113,7 @@ body {
     max-width: 460px;
 }
 
-/* BENEFICIOS (CONSULTA / VACUNACIÓN / URGENCIAS) */
+/* Beneficios*/
 .beneficios {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -155,7 +156,7 @@ body {
     color: dimgray;
 }
 
-/* SERVICIOS PRINCIPALES */
+/* Servicios*/
 .servicios {
     padding: 20px 0 60px 0;
 }
@@ -288,5 +289,152 @@ body {
 @media (max-width: 480px) {
     .servicios__grid {
         grid-template-columns: 1fr;
+    }
+}
+
+.seccion-texto {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: dimgray;
+}
+
+.seccion-texto h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+/* Formulario de contacto */
+.form-contacto {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.form-contacto button {
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: none;
+    background-color: steelblue;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-contacto button:hover {
+    background-color: lightseagreen;
+}
+
+/* SECCIÓN CITAS */
+.seccion-citas {
+    padding: 40px 0;
+}
+
+/* Centramos todo el contenido de la sección */
+.seccion-citas .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra horizontalmente */
+    text-align: center;
+}
+
+.seccion-citas h1 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.seccion-citas p {
+    margin-bottom: 20px;
+    max-width: 650px;
+    line-height: 1.5;
+}
+
+/* Contenedor del formulario de citas */
+.form-cita {
+    max-width: 650px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid lightgray;
+    background-color: white;
+    display: grid;
+    gap: 15px;
+    text-align: left;
+    /* El texto de los campos sí alineado a la izquierda */
+}
+
+/* Cada grupo de campo */
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-grupo label {
+    font-weight: 600;
+}
+
+/* Campos de texto, select y textarea */
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    font: inherit;
+    background-color: white;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: lightcoral;
+}
+
+/* Textos pequeños debajo de algunos campos */
+.form-grupo small {
+    font-size: 0.85rem;
+    color: dimgray;
+}
+
+/* Botón principal del formulario */
+.btn-primario {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: lightcoral;
+    color: white;
+    justify-self: flex-start;
+
+}
+
+.btn-primario:hover {
+    background-color: indianred;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .form-cita {
+        padding: 16px;
+    }
+
+    .seccion-citas h1 {
+        font-size: 1.5rem;
     }
 }

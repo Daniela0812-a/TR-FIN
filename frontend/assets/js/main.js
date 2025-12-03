@@ -1,19 +1,18 @@
 // main.js - Clínica Veterinaria Patitas Felices
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. MENSAJE PARA URGENCIAS CUANDO HACEN CLICK EN "Urgencias" DEL MENÚ
     const enlacesMenu = document.querySelectorAll(".nav a");
 
     enlacesMenu.forEach(enlace => {
         if (enlace.textContent.trim().toLowerCase() === "urgencias") {
             enlace.addEventListener("click", (evento) => {
                 evento.preventDefault(); // evita recargar
-                alert("Urgencias 24/7\nLlámanos al: 555 987 654\nDirección: Calle Mascotas 123.");
+                alert("Estamos aquí para ayudarte\nLlámanos al: 555 987 654\nDirección: Calle Mascotas 123.");
             });
         }
     });
 
-    // 2. AL HACER CLICK EN UN SERVICIO, SE ACTUALIZA EL TEXTO PRINCIPAL
+    // 2.SE ACTUALIZA EL TEXTO PRINCIPAL
     const servicios = document.querySelectorAll(".servicio");
     const heroTexto = document.querySelector(".hero__texto");
 
