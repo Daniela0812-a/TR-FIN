@@ -15,3 +15,4 @@ $conn = pg_connect(
 if (!$conn) {
     die('Error de conexión a PostgreSQL: ' . pg_last_error());
 }
+
