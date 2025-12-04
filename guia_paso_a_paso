@@ -1,0 +1,192 @@
+# Guía paso a paso para implementar el proyecto TR-FIN
+
+Esta guía permite montar y probar el proyecto **TR-FIN** (Hospital Veterinario) 
+
+---
+
+## 1. Base de datos en PostgreSQL
+
+1. Abrir PgAdmin.
+2. Crear la base de datos:
+
+```sql
+CREATE DATABASE "Hospital";
+
+* Crear tabla citas:
+
+CREATE TABLE public.citas (
+    id              SERIAL PRIMARY KEY,
+    nombre_dueño    VARCHAR(100) NOT NULL,
+    telefono        VARCHAR(50)  NOT NULL,
+    correo          VARCHAR(100),
+    nombre_mascota  VARCHAR(100) NOT NULL,
+    especie         VARCHAR(50)  NOT NULL,
+    servicio        VARCHAR(100) NOT NULL,
+    fecha_cita      DATE         NOT NULL,
+    hora_cita       TIME         NOT NULL,
+    motivo_cita     TEXT
+);
+```
+
+3. Crear tabla mensajes_contacto:
+
+CREATE TABLE public.mensajes_contacto (
+    id         SERIAL PRIMARY KEY,
+    nombre     VARCHAR(100) NOT NULL,
+    correo     VARCHAR(100) NOT NULL,
+    mensaje    TEXT         NOT NULL,
+    creado_en  TIMESTAMP    DEFAULT now()
+);
+
+
+4. Crear tabla hospitalizacion:
+
+CREATE TABLE public.hospitalizacion (
+    id                      SERIAL PRIMARY KEY,
+    nombre_mascota          VARCHAR(100) NOT NULL,
+    raza                    VARCHAR(100),
+    peso                    NUMERIC(5,2),
+    tipo_operacion          VARCHAR(150) NOT NULL,
+    motivo_hospitalizacion  TEXT         NOT NULL,
+    creado_en               TIMESTAMP    DEFAULT now()
+);
+
+
+* Con esto la base de datos queda lista para trabajar con los formularios.
+
+## 2. Conexión en backend/config/database.php
+
+1. Abrir:
+    backend/config/database.php
+
+2. Configurar:
+    $host     = 'localhost';
+    $port     = '5432';
+    $dbname   = 'Hospital';   // Debe coincidir con la BD
+    $user     = 'postgres';   // usuario
+    $password = 'TuClave';    // contraseña
+
+    $conn = pg_connect(
+        "host=$host port=$port dbname=$dbname user=$user password=$password"
+    );
+
+    if (!$conn) {
+        die('Error de conexión a PostgreSQL: ' . pg_last_error());
+    }
+
+* Asegúrate de que dbname, user y password coinciden con tu instalación de PostgreSQL.
+
+## 3. APIs del backend (backend/api/)
+    * 3.1 guardar_cita.php
+        - Recibe los datos del formulario de citas por POST.
+        - Valida campos obligatorios.
+        - Inserta en public.citas con pg_query_params.
+        - Si todo va bien:
+            -- header('Location: ../../public/index.php?page=citas&ok=1');
+
+    * 3.2 guardar_contacto.php
+        - Recibe nombre, correo, mensaje.
+        - Inserta en mensajes_contacto.
+        - Redirige con:
+            -- okContacto=1 → mensaje de éxito.
+            -- errorContacto=1 → mensaje de error.
+
+    * 3.3 guardar_hospitalizacion.php
+        - Recibe: nombre_mascota, raza, peso, tipo_operacion, motivo_hospitalizacion.
+        - Inserta en hospitalizacion.
+        - Redirige con okHosp=1 o errorHosp=1 para mostrar el resultado.
+
+## 4. Frontend y enrutamiento
+    - Punto de entrada:
+    - public/index.php
+    - Define las páginas permitidas:
+        $allowed_pages = [
+            'inicio', 'servicio', 'equipo', 'citas', 'contacto',
+            'consulta_general', 'vacunacion', 'hospitalizacion', 'nutricion',
+            'examenes', 'cirugia', 'estetica'
+        ];
+
+    - La página por defecto es inicio.
+    - Según ?page= se incluye el archivo correspondiente de frontend/pages/, por ejemplo:
+            -- index.php?page=inicio
+            -- index.php?page=citas
+            -- index.php?page=contacto
+
+    - Vistas:
+        frontend/pages/
+            inicio.php
+            servicio.php
+            equipo.php
+            citas.php
+            contacto.php
+            consulta_general.php
+            vacunacion.php
+            hospitalizacion.php
+            nutricion.php
+            examenes.php
+            cirugia.php
+            estetica.php
+
+    - Parciales reutilizables:
+
+        frontend/partials/
+            navbar.php
+            footer.php
+
+    - index.php se encarga de:
+        -- Incluir navbar.
+        -- Incluir la vista según page.
+        -- Incluir footer.
+
+    - Cargar CSS y JS.
+
+## 5. Formularios principales
+    * 5.1 Citas (frontend/pages/citas.php)
+        <form class="form-cita" method="post" action="../backend/api/guardar_cita.php">
+            <!-- campos del formulario -->
+        </form>
+
+        - Si llega ?ok=1 → muestra mensaje de éxito.
+        - Si llega ?error=1 → muestra mensaje de error.
+
+    * 5.2 Contacto (frontend/pages/contacto.php)
+        <form class="form-contacto" action="../backend/api/guardar_contacto.php" method="post">
+            <!-- campos -->
+        </form>
+
+        - Usa okContacto / errorContacto para mostrar el resultado.
+
+    * 5.3 Hospitalización (frontend/pages/hospitalizacion.php)
+        <form class="form-cita" method="post" action="../backend/api/guardar_hospitalizacion.php">
+            <!-- campos -->
+        </form>
+
+    - Muestra mensajes si vienen okHosp=1 o errorHosp=1.
+
+## 6. Estilos y JavaScript
+    - CSS principal:
+    - frontend/assets/css/style.css
+    - Header, menú, tarjetas de servicios.
+    - Formularios.
+    - Mensajes flotantes (alertas de éxito/error).
+    - JavaScript:
+        -- frontend/assets/js/main.js
+        -- Comportamiento del menú.
+        -- Sombra al hacer scroll.
+        -- Desaparición automática de alertas.
+    - Se carga al final de index.php:
+            <script src="../frontend/assets/js/main.js"></script>
+
+## 7. Cómo ejecutar el proyecto en local
+    - Copiar la carpeta TR-FIN a:
+    - XAMPP: C:\xampp\htdocs\TR-FIN
+    - WAMP: C:\wamp64\www\TR-FIN
+    - Encender Apache (o el servidor que uses).
+    - En el navegador ir a:
+            -- http://localhost/TR-FIN/public/index.php
+
+    - Probar:
+        -- Citas: llenar formulario y verificar un registro en citas.
+        -- Contacto: enviar mensaje y revisar mensajes_contacto.
+        -- Hospitalización: registrar y revisar hospitalizacion.
+
