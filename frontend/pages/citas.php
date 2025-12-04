@@ -5,17 +5,20 @@
             Diligencia el siguiente formulario para solicitar una cita para tu mascota.
         </p>
 
-        <?php if (isset($_GET['ok']) && $_GET['ok'] == '1'): ?>
-            <div class="alerta-exito">
-                ¡Tu solicitud de cita fue enviada correctamente! Pronto nos comunicaremos contigo.
-            </div>
-        <?php endif; ?>
+    <?php if (isset($_GET['ok']) && $_GET['ok'] == '1'): ?>
+    <div class="alerta alerta-exito" id="alerta-exito">
+        <span class="alerta-icono">✔</span>
+        <span>¡Tu solicitud de cita fue enviada correctamente! Pronto nos comunicaremos contigo.</span>
+    </div>
+<?php endif; ?>
 
-        <?php if (isset($_GET['error']) && $_GET['error'] == '1'): ?>
-            <div class="alerta-error">
-                Faltan datos obligatorios. Por favor, revisa el formulario.
-            </div>
-        <?php endif; ?>
+<?php if (isset($_GET['error']) && $_GET['error'] == '1'): ?>
+    <div class="alerta alerta-error" id="alerta-error">
+        <span class="alerta-icono">!</span>
+        <span>Faltan datos obligatorios. Por favor, revisa el formulario.</span>
+    </div>
+<?php endif; ?>
+
 
         <form class="form-cita" method="post" action="../backend/api/guardar_cita.php">
             <!-- Datos del propietario -->
@@ -47,8 +50,11 @@
                     <option value="Perro">Perro</option>
                     <option value="Gato">Gato</option>
                     <option value="Otra">Haster</option>
-                    <option value="Otra">Rata</option>
+                    <option value="Otra">Loro</option>
                     <option value="Otra">Conejo</option>
+                    <option value="Otra">Roedores</option>
+                    <option value="Otra">Reptiles</option>
+                    <option value="Otra">Otras Especies</option>
                 </select>
             </div>
 
@@ -86,13 +92,13 @@
                     <option value="15:00">03:00 p.m.</option>
                     <option value="16:00">04:00 p.m.</option>
                 </select>
-                <small>El hospital verificara si ese horario esta disponible.</small>
+                <small>El hospital  hospital verificara si ese horario esta disponible.</small>
             </div>
 
             <!-- Comentarios -->
             <div class="form-grupo">
                 <label for="mensaje">Motivo por el cual solicita la cita </label>
-                <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                <textarea id="mensaje" name="motivo_cita" rows="4"></textarea>
             </div>
 
             <button type="submit" class="btn-primario">Enviar solicitud</button>
