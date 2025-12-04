@@ -23,9 +23,9 @@
                 <div class="cirugia-badge-flotante">💗 Cuidado seguro</div>
                 <div class="cirugia-card-ilustracion">
                     <img src="../frontend/assets/img/cirugia.png" alt="Área de cirugía veterinaria">
-                </div>
             </div>
-        </section>
+            </div>
+            </section>
 
         <!-- TIPOS DE CIRUGÍA (TARJETAS) -->
         <section class="cirugia-grid">
