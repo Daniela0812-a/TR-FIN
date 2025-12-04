@@ -1,4 +1,5 @@
-/* RESETEO BÁSICO */
+/* ===== RESET Y BASE ===== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,17 +8,17 @@
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-color: aliceblue;
+    background: linear-gradient(to bottom, aliceblue 0%, seashell 45%, floralwhite 100%);
     color: darkslategray;
 }
 
-/* Contenedor general */
 .contenedor {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
+/* ===== HEADER ===== */
 
 .header {
     background-color: white;
@@ -32,7 +33,6 @@ body {
     justify-content: space-between;
     padding: 12px 0;
 }
-
 
 .logo {
     display: flex;
@@ -64,7 +64,6 @@ body {
     color: slategray;
 }
 
-
 .nav a {
     margin-left: 20px;
     text-decoration: none;
@@ -77,7 +76,8 @@ body {
     color: lightseagreen;
 }
 
-/* HERO (IMAGEN GRANDE) */
+/* ===== HERO ===== */
+
 .hero {
     position: relative;
     height: 380px;
@@ -86,11 +86,10 @@ body {
     background-position: center top;
 }
 
-
 .hero__overlay {
     position: absolute;
     inset: 0;
-    background: transparent;
+    background: radial-gradient(circle at top left, mistyrose, transparent 60%);
 }
 
 .hero__contenido {
@@ -98,9 +97,7 @@ body {
     height: 100%;
     display: flex;
     align-items: flex-start;
-    /* texto arriba */
     padding-top: 40px;
-    /* espacio debajo del menú */
 }
 
 .hero__texto h2 {
@@ -113,10 +110,21 @@ body {
     max-width: 460px;
 }
 
-/* Beneficios*/
+.hero__badge {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: lavenderblush;
+    color: darkslategray;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ===== BENEFICIOS ===== */
+
 .beneficios {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 
 .beneficios__grid {
@@ -126,7 +134,7 @@ body {
 }
 
 .beneficio {
-    background-color: mistyrose;
+    background: linear-gradient(135deg, mistyrose, moccasin);
     padding: 24px;
     border-radius: 18px;
     text-align: center;
@@ -142,7 +150,6 @@ body {
     width: 100px;
     height: 100px;
     object-fit: contain;
-    opacity: 1;
 }
 
 .beneficio h3 {
@@ -156,16 +163,40 @@ body {
     color: dimgray;
 }
 
-/* Servicios*/
+.beneficio-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.beneficio--clicable {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.beneficio--clicable:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== SERVICIOS (HOME / EQUIPO) ===== */
+
 .servicios {
-    padding: 20px 0 60px 0;
+    padding: 20px 0 60px;
 }
 
 .servicios__titulo {
     text-align: center;
     font-size: 22px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     text-transform: uppercase;
+}
+
+.servicios__subtitulo {
+    text-align: center;
+    font-size: 0.95rem;
+    color: slategray;
+    margin-bottom: 22px;
 }
 
 .servicios__grid {
@@ -234,7 +265,8 @@ body {
     color: slategray;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
+
 .footer {
     background-color: midnightblue;
     color: ghostwhite;
@@ -253,7 +285,765 @@ body {
     margin-top: 4px;
 }
 
-/* RESPONSIVE */
+/* ===== TEXTO GENÉRICO ===== */
+
+.seccion-texto {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: dimgray;
+}
+
+.seccion-texto h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+/* ===== FORMULARIO CONTACTO (GENÉRICO) ===== */
+
+.form-contacto {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    border: 1px solid gainsboro;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: whitesmoke;
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus {
+    border-color: lightseagreen;
+    box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.15);
+    outline: none;
+}
+
+.form-contacto button {
+    align-self: center;
+    margin-top: 12px;
+    padding: 10px 26px;
+    border-radius: 999px;
+    border: none;
+    background-color: steelblue;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-contacto button:hover {
+    background-color: lightseagreen;
+}
+
+/* ===== SECCIÓN CITAS ===== */
+
+.seccion-citas {
+    padding: 40px 0;
+}
+
+.seccion-citas .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.seccion-citas h1 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.seccion-citas p {
+    margin-bottom: 20px;
+    max-width: 650px;
+    line-height: 1.5;
+}
+
+.form-cita {
+    max-width: 650px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid lightgray;
+    background-color: white;
+    display: grid;
+    gap: 15px;
+    text-align: left;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-grupo label {
+    font-weight: 600;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    font: inherit;
+    background-color: white;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: lightcoral;
+}
+
+.form-grupo small {
+    font-size: 0.85rem;
+    color: dimgray;
+}
+
+/* botón reutilizable */
+.btn-primario {
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, lightcoral, salmon);
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primario:hover {
+    background: linear-gradient(135deg, salmon, tomato);
+}
+
+/* centrar el botón dentro del form de citas */
+.form-cita .btn-primario {
+    justify-self: center;
+}
+
+/* ===== VACUNACIÓN Y DESPARASITACIÓN ===== */
+
+.vac-layout {
+    padding: 60px 0 80px;
+    background: radial-gradient(circle at top, papayawhip 0%, oldlace 35%, floralwhite 100%);
+}
+
+.vac-titulo {
+    text-align: center;
+    font-size: 2.3rem;
+    color: saddlebrown;
+    margin-bottom: 18px;
+}
+
+.vac-descripcion {
+    max-width: 900px;
+    margin: 0 auto 14px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: sienna;
+}
+
+.vac-subtitulo {
+    max-width: 900px;
+    margin: 32px auto 10px;
+    font-size: 1.3rem;
+    color: saddlebrown;
+}
+
+.vac-grid {
+    max-width: 1050px;
+    margin: 25px auto 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.vac-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 22px rgba(160, 82, 45, 0.18);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.vac-card__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.vac-card__header--vac {
+    background: linear-gradient(135deg, mediumseagreen, yellowgreen);
+}
+
+.vac-card__header--desp {
+    background: linear-gradient(135deg, sandybrown, coral);
+}
+
+.vac-card__icono {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.vac-card__contenido {
+    padding: 16px 18px 18px;
+    font-size: 0.95rem;
+    color: sienna;
+}
+
+.vac-card__contenido h4 {
+    margin: 6px 0 4px;
+    font-size: 1rem;
+    color: saddlebrown;
+}
+
+.vac-lista {
+    margin: 0 0 10px;
+    padding-left: 18px;
+}
+
+.vac-lista li {
+    margin-bottom: 4px;
+}
+
+.vac-tabla-wrap {
+    margin: 8px 0 12px;
+    overflow-x: auto;
+}
+
+.vac-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.vac-tabla th,
+.vac-tabla td {
+    border: 1px solid burlywood;
+    padding: 6px 8px;
+}
+
+.vac-tabla th {
+    background-color: bisque;
+    text-align: left;
+}
+
+.vac-nota {
+    font-size: 0.85rem;
+    color: peru;
+    margin-top: 4px;
+}
+
+.vac-historial {
+    max-width: 900px;
+    margin: 10px auto 0;
+    text-align: center;
+}
+
+.vac-buscador {
+    max-width: 420px;
+    margin: 15px auto;
+}
+
+.vac-buscador input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid burlywood;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.vac-buscador input:focus {
+    border-color: coral;
+    box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.25);
+}
+
+.vac-cta {
+    margin-top: 10px;
+}
+
+.vac-btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, sandybrown, coral);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(244, 164, 96, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.vac-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(244, 164, 96, 0.55);
+}
+
+/* ===== ABOUT / EQUIPO ===== */
+
+.about-layout {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-subtitulo {
+    max-width: 650px;
+    margin: 8px auto 0;
+    font-size: 0.95rem;
+    color: slategray;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.about-card {
+    background-color: white;
+    border-radius: 18px;
+    padding: 18px 18px 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid lightgray;
+}
+
+.about-card__icono {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: lavenderblush;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.about-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: darkslateblue;
+}
+
+.about-card p {
+    font-size: 0.95rem;
+    color: dimgray;
+    line-height: 1.6;
+}
+
+.about-card--mision {
+    border-top-color: lightcoral;
+}
+
+.about-card--vision {
+    border-top-color: lightseagreen;
+}
+
+.about-card--valores {
+    border-top-color: goldenrod;
+}
+
+.equipo-titulo {
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 1.4rem;
+    color: darkslateblue;
+}
+
+.equipo-descripcion {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 22px;
+    font-size: 0.95rem;
+    color: slategray;
+}
+
+.equipo-grid .equipo-card {
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    padding-bottom: 16px;
+}
+
+.equipo-card__imagen {
+    background-color: lavender;
+}
+
+.equipo-card__imagen img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.equipo-card h3 {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+
+.equipo-card p {
+    font-size: 0.9rem;
+    padding: 0 12px;
+    color: dimgray;
+}
+
+/* ===== CONTACTO ===== */
+
+.contacto-layout {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background: linear-gradient(180deg, white 0%, oldlace 40%, seashell 100%);
+}
+
+.contacto-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.contacto-texto {
+    flex: 2;
+    min-width: 260px;
+    font-size: 0.96rem;
+    color: dimgray;
+    line-height: 1.6;
+}
+
+.contacto-horario {
+    margin-top: 8px;
+    color: darkslategray;
+}
+
+.contacto-card {
+    flex: 1;
+    min-width: 240px;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    padding: 14px 16px 16px;
+    font-size: 0.9rem;
+}
+
+.contacto-card h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: darkslateblue;
+}
+
+.contacto-card ul {
+    margin-left: 18px;
+    margin-bottom: 8px;
+}
+
+.contacto-card li {
+    margin-bottom: 4px;
+}
+
+.contacto-pill {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: palegoldenrod;
+    color: saddlebrown;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.contacto-formulario {
+    margin-top: 10px;
+}
+
+.contacto-formulario__titulo {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: darkslategray;
+}
+
+/* ===== CONSULTA GENERAL (VERSIÓN FINAL) ===== */
+
+.consulta-layout {
+    padding: 50px 0;
+    background: linear-gradient(to bottom, linen, aliceblue);
+}
+
+.consulta-resumen {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: floralwhite;
+    border-radius: 20px;
+    padding: 25px 30px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 35px;
+    animation: consultaFadeUp 0.6s ease-out;
+}
+
+.consulta-resumen-texto {
+    flex: 1.4;
+}
+
+.consulta-resumen-ilustracion {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.consulta-resumen-ilustracion img {
+    max-width: 260px;
+    width: 100%;
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.consulta-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: peachpuff;
+    color: saddlebrown;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.consulta-titulo {
+    font-size: 2.2rem;
+    color: midnightblue;
+    margin-bottom: 12px;
+}
+
+.consulta-descripcion {
+    font-size: 1rem;
+    color: dimgray;
+    line-height: 1.7;
+    max-width: 900px;
+}
+
+.consulta-lista {
+    margin-top: 12px;
+    padding-left: 18px;
+    color: darkslategray;
+}
+
+.consulta-lista li {
+    margin-bottom: 5px;
+}
+
+.consulta-subtitulo {
+    margin-top: 35px;
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+    color: darkslateblue;
+}
+
+/* historial visual */
+
+.consulta-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.consulta-card {
+    flex: 1 1 260px;
+    background-color: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.consulta-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.consulta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* testimonio */
+
+.consulta-testimonio {
+    max-width: 750px;
+    margin: 0 auto 25px;
+    background-color: lavenderblush;
+    border-radius: 18px;
+    padding: 18px 24px;
+    position: relative;
+    color: dimgray;
+}
+
+.consulta-testimonio-icono {
+    position: absolute;
+    top: -18px;
+    left: 22px;
+    font-size: 2.4rem;
+    color: lightcoral;
+}
+
+.consulta-testimonio-firma {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: slategray;
+    font-style: italic;
+}
+
+.consulta-cta {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* canales de atención */
+
+.consulta-canales {
+    background-color: aliceblue;
+    padding: 35px 0 45px;
+}
+
+.canales-lista {
+    list-style: none;
+    margin-top: 15px;
+    padding-left: 0;
+    text-align: center;
+}
+
+.canales-lista li {
+    margin-bottom: 6px;
+    color: darkslategray;
+}
+
+/* animación consulta */
+
+@keyframes consultaFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TOAST MENSAJES (ÉXITO / ERROR) ===== */
+
+.alerta-exito,
+.alerta-error {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.23);
+    opacity: 0;
+    transform: translateY(-12px);
+    animation: alertaEntrada 0.4s ease-out forwards;
+}
+
+.alerta-exito {
+    background: linear-gradient(135deg, mediumseagreen, seagreen);
+}
+
+.alerta-error {
+    background: linear-gradient(135deg, lightcoral, tomato);
+}
+
+.alerta-icono {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: seagreen;
+}
+
+.alerta-error .alerta-icono {
+    color: tomato;
+}
+
+.alerta--oculta {
+    opacity: 0;
+    transform: translateY(-16px);
+    pointer-events: none;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+@keyframes alertaEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+    .about-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .header__contenido {
         flex-direction: column;
@@ -284,6 +1074,33 @@ body {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .form-cita {
+        padding: 16px;
+    }
+
+    .seccion-citas h1 {
+        font-size: 1.5rem;
+    }
+
+    .contacto-info {
+        flex-direction: column;
+    }
+
+    .consulta-resumen {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .consulta-resumen-texto {
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -292,149 +1109,761 @@ body {
     }
 }
 
-.seccion-texto {
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: dimgray;
-}
-
-.seccion-texto h3 {
-    font-size: 18px;
-    margin-bottom: 6px;
-}
-
-/* Formulario de contacto */
-.form-contacto {
+/* Centrar las 2 tarjetas de "Nuestros servicios principales" */
+.servicios .servicios__grid {
     max-width: 600px;
-    margin: 0 auto 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    /* ancho máximo del bloque de servicios */
+    margin: 0 auto;
+    /* centra el bloque dentro del contenedor */
+    grid-template-columns: repeat(2, 1fr);
+    /* dos columnas, una por tarjeta */
 }
 
-.form-contacto input,
-.form-contacto textarea {
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-family: inherit;
-    font-size: 14px;
+.servicio-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-.form-contacto button {
-    margin-top: 10px;
-    padding: 10px 18px;
-    border-radius: 20px;
-    border: none;
-    background-color: steelblue;
-    color: white;
-    font-weight: 600;
+.servicio--clicable {
     cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.form-contacto button:hover {
-    background-color: lightseagreen;
+.servicio--clicable:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* SECCIÓN CITAS */
-.seccion-citas {
-    padding: 40px 0;
+/* ==========================
+   Página de Nutrición
+   ========================== */
+
+.nutri-layout {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background: linear-gradient(to bottom, mintcream, honeydew, seashell);
 }
 
-/* Centramos todo el contenido de la sección */
-.seccion-citas .contenedor {
+/* Hero principal */
+.nutri-hero {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
     align-items: center;
-    /* Centra horizontalmente */
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.nutri-hero__texto {
+    flex: 1.4;
+}
+
+.nutri-hero__texto h1 {
+    font-size: 2.1rem;
+    color: darkslateblue;
+    margin-bottom: 10px;
+}
+
+.nutri-hero__texto p {
+    font-size: 0.98rem;
+    color: dimgray;
+    line-height: 1.7;
+}
+
+.nutri-chip {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: palegreen;
+    color: darkgreen;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Ilustración con leve animación */
+.nutri-hero__ilustracion {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.nutri-hero__card {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    animation: nutriFloat 3s ease-in-out infinite;
+}
+
+.nutri-hero__card img {
+    max-width: 260px;
+    width: 100%;
+}
+
+.nutri-hero__badge {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: lightgoldenrodyellow;
+    color: saddlebrown;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Secciones y tablas */
+.nutri-section {
+    margin-bottom: 30px;
+}
+
+.nutri-titulo {
+    font-size: 1.4rem;
+    color: darkslateblue;
+    margin-bottom: 8px;
+}
+
+.nutri-texto {
+    font-size: 0.95rem;
+    color: dimgray;
+    max-width: 900px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.nutri-tabla-wrap {
+    max-width: 900px;
+    overflow-x: auto;
+}
+
+.nutri-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.nutri-tabla th,
+.nutri-tabla td {
+    padding: 8px 10px;
+    border: 1px solid lightgray;
+}
+
+.nutri-tabla th {
+    background-color: lightgoldenrodyellow;
+    color: saddlebrown;
+    text-align: left;
+}
+
+.nutri-tabla--gatos th {
+    background-color: lightsteelblue;
+    color: midnightblue;
+}
+
+/* Sección final */
+.nutri-section--final {
     text-align: center;
 }
 
-.seccion-citas h1 {
-    margin-bottom: 10px;
-    font-size: 1.8rem;
+.nutri-cta {
+    margin-top: 12px;
 }
 
-.seccion-citas p {
+/* Animación suave tipo flotante */
+@keyframes nutriFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nutri-hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .nutri-hero__texto {
+        text-align: left;
+    }
+}
+
+/* ==========================
+   Página de Exámenes
+   ========================== */
+
+.examenes-layout {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background: linear-gradient(to bottom, aliceblue, mintcream, seashell);
+}
+
+.examenes-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.examenes-texto {
+    flex: 1.4;
+}
+
+.examenes-texto h1 {
+    font-size: 2.1rem;
+    color: darkslateblue;
+    margin-bottom: 10px;
+}
+
+.examenes-texto p {
+    font-size: 0.98rem;
+    color: dimgray;
+    line-height: 1.7;
+}
+
+.examenes-chip {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: lightsteelblue;
+    color: midnightblue;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Ilustración lateral */
+.examenes-ilustracion {
+    flex: 1;
+    text-align: center;
+}
+
+.examenes-card-ilustracion {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.examenes-card-ilustracion img {
+    max-width: 260px;
+    width: 100%;
+}
+
+/* Grid de tarjetas de exámenes */
+.examenes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.examen-card {
+    background-color: white;
+    border-radius: 18px;
+    padding: 16px 18px 18px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.examen-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: darkslateblue;
+}
+
+.examen-card p {
+    font-size: 0.95rem;
+    color: dimgray;
+    line-height: 1.6;
+}
+
+.examen-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* Nota final */
+.examenes-nota {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    color: slategray;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .examenes-header {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .examenes-texto {
+        text-align: left;
+    }
+}
+
+/* ==========================
+   Página de Cirugía
+   ========================== */
+
+.cirugia-layout {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background: linear-gradient(to bottom, lavenderblush, aliceblue, mintcream);
+}
+
+/* Encabezado con dos columnas */
+.cirugia-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.cirugia-texto {
+    flex: 1.4;
+}
+
+.cirugia-chip {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: mistyrose;
+    color: firebrick;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.cirugia-texto h1 {
+    font-size: 2.1rem;
+    color: darkslateblue;
+    margin-bottom: 10px;
+}
+
+.cirugia-texto p {
+    font-size: 0.98rem;
+    color: dimgray;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.cirugia-lista-resumen {
+    list-style: disc;
+    padding-left: 18px;
+    font-size: 0.95rem;
+    color: darkslategray;
+}
+
+/* Ilustración lateral */
+.cirugia-ilustracion {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    min-width: 240px;
+}
+
+.cirugia-card-ilustracion {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.cirugia-card-ilustracion img {
+    max-width: 260px;
+    width: 100%;
+}
+
+/* Badge flotante encima de la imagen */
+.cirugia-badge-flotante {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: peachpuff;
+    color: saddlebrown;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Grid de tipos de cirugía */
+.cirugia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.cirugia-card {
+    background-color: white;
+    border-radius: 18px;
+    padding: 16px 18px 18px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cirugia-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.cirugia-icono {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: lavender;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.cirugia-card h2 {
+    font-size: 1.05rem;
+    color: firebrick;
+}
+
+.cirugia-card p {
+    font-size: 0.95rem;
+    color: dimgray;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.cirugia-tag {
+    display: inline-block;
+    margin-top: 2px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: lavenderblush;
+    color: darkslategray;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.cirugia-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* Pasos del proceso quirúrgico */
+.cirugia-pasos {
+    margin-top: 10px;
     margin-bottom: 20px;
-    max-width: 650px;
+}
+
+.cirugia-pasos h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: darkslateblue;
+    margin-bottom: 12px;
+}
+
+.cirugia-pasos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.cirugia-paso {
+    background-color: white;
+    border-radius: 16px;
+    padding: 12px 14px 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.cirugia-paso-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: lightsteelblue;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.cirugia-paso h3 {
+    font-size: 1rem;
+    color: darkslategray;
+    margin-bottom: 4px;
+}
+
+.cirugia-paso p {
+    font-size: 0.9rem;
+    color: dimgray;
     line-height: 1.5;
 }
 
-/* Contenedor del formulario de citas */
-.form-cita {
-    max-width: 650px;
-    width: 100%;
+/* Nota final */
+.cirugia-nota {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    color: slategray;
+    text-align: center;
+    line-height: 1.6;
     margin-top: 10px;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid lightgray;
-    background-color: white;
-    display: grid;
-    gap: 15px;
-    text-align: left;
-    /* El texto de los campos sí alineado a la izquierda */
 }
 
-/* Cada grupo de campo */
-.form-grupo {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form-grupo label {
-    font-weight: 600;
-}
-
-/* Campos de texto, select y textarea */
-.form-grupo input,
-.form-grupo select,
-.form-grupo textarea {
-    padding: 8px 10px;
-    border-radius: 8px;
-    border: 1px solid lightgray;
-    font: inherit;
-    background-color: white;
-}
-
-.form-grupo input:focus,
-.form-grupo select:focus,
-.form-grupo textarea:focus {
-    outline: none;
-    border-color: lightcoral;
-}
-
-/* Textos pequeños debajo de algunos campos */
-.form-grupo small {
-    font-size: 0.85rem;
-    color: dimgray;
-}
-
-/* Botón principal del formulario */
-.btn-primario {
-    padding: 10px 18px;
-    border-radius: 999px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    background-color: lightcoral;
-    color: white;
-    justify-self: flex-start;
-
-}
-
-.btn-primario:hover {
-    background-color: indianred;
-}
-
-/* Ajustes para pantallas pequeñas */
+/* Responsive */
 @media (max-width: 768px) {
-    .form-cita {
-        padding: 16px;
+    .cirugia-header {
+        flex-direction: column-reverse;
+        text-align: center;
     }
 
-    .seccion-citas h1 {
-        font-size: 1.5rem;
+    .cirugia-texto {
+        text-align: left;
+    }
+}
+
+/* ==========================
+   Página de Estética y peluquería
+   ========================== */
+
+.estetica-layout {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background: linear-gradient(to bottom, lavenderblush, seashell, honeydew);
+}
+
+/* Encabezado dos columnas */
+.estetica-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.estetica-texto {
+    flex: 1.4;
+}
+
+.estetica-chip {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: mistyrose;
+    color: mediumvioletred;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.estetica-texto h1 {
+    font-size: 2.1rem;
+    color: darkslateblue;
+    margin-bottom: 10px;
+}
+
+.estetica-texto p {
+    font-size: 0.98rem;
+    color: dimgray;
+    line-height: 1.7;
+}
+
+/* Ilustración lateral */
+.estetica-ilustracion {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    min-width: 240px;
+}
+
+.estetica-card-ilustracion {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.estetica-card-ilustracion img {
+    max-width: 260px;
+    width: 100%;
+}
+
+/* Badge flotante */
+.estetica-badge-flotante {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: plum;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Grid de tipos de servicio */
+.estetica-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.estetica-card {
+    background-color: white;
+    border-radius: 18px;
+    padding: 16px 18px 18px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.estetica-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.estetica-icono {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: lavender;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.estetica-card h2 {
+    font-size: 1.05rem;
+    color: mediumvioletred;
+}
+
+.estetica-card p {
+    font-size: 0.95rem;
+    color: dimgray;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.estetica-tag {
+    display: inline-block;
+    margin-top: 2px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: lavenderblush;
+    color: darkslategray;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.estetica-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* Pelaje y recomendaciones */
+.estetica-pelaje {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.estetica-pelaje h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: darkslateblue;
+    margin-bottom: 12px;
+}
+
+.estetica-pelaje-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+.estetica-pelaje-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 12px 14px 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.estetica-pelaje-card h3 {
+    font-size: 1rem;
+    color: darkslategray;
+    margin-bottom: 4px;
+}
+
+.estetica-pelaje-card p {
+    font-size: 0.9rem;
+    color: dimgray;
+    line-height: 1.5;
+}
+
+.estetica-pill {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: mistyrose;
+    color: firebrick;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Nota final */
+.estetica-nota {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    color: slategray;
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .estetica-header {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .estetica-texto {
+        text-align: left;
     }
 }
