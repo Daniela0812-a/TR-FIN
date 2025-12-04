@@ -1,6 +1,9 @@
 <?php
 // Páginas permitidas
-$allowed_pages = ['inicio', 'servicio', 'equipo', 'citas', 'contacto'];
+// Páginas permitidas
+$allowed_pages = ['inicio', 'servicio', 'equipo', 'citas', 'contacto', 'consulta_general', 'vacunacion', 'hospitalizacion', 'nutricion',
+    'examenes', 'cirugia','estetica'];
+
 
 // Página por defecto: inicio
 $page = $_GET['page'] ?? 'inicio';
