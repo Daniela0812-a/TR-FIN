@@ -1,4 +1,4 @@
-<main class="servicios">
+<main class="servicios">  
     <div class="contenedor">
         <h2 class="servicios__titulo">Servicios del hospital</h2>
         <p style="text-align:center; margin-bottom:20px;">
@@ -6,41 +6,41 @@
         </p>
 
         <div class="servicios__grid">
-            <article class="servicio">
-                <div class="servicio__imagen">
-                    <img src="../frontend/assets/img/hospitalizacion.png" alt="Hospitalización">
-                    <span class="servicio__etiqueta servicio__etiqueta--azul">CUIDADO</span>
-                </div>
-                <h3>Hospitalización</h3>
-                <p>Espacios cómodos para el monitoreo constante de pacientes críticos.</p>
-            </article>
+            <!-- HOSPITALIZACIÓN -->
+            <a href="index.php?page=hospitalizacion" class="servicio-link">
+                <article class="servicio servicio--clicable">
+                    <div class="servicio__imagen">
+                        <img src="../frontend/assets/img/hospitalizacion.png" alt="Hospitalización">
+                        <span class="servicio__etiqueta servicio__etiqueta--azul">CUIDADO</span>
+                    </div>
+                    <h3>Hospitalización</h3>
+                    <p>Espacios cómodos para el monitoreo constante de pacientes críticos.</p>
+                </article>
+            </a>
 
-            <article class="servicio">
-                <div class="servicio__imagen">
-                    <img src="../frontend/assets/img/rayosx.png" alt="Rayos X">
-                    <span class="servicio__etiqueta servicio__etiqueta--naranja">IMAGEN</span>
-                </div>
-                <h3>Rayos X </h3>
-                <p>Diagnóstico por imágenes para detectar fracturas, tumores y otros problemas internos.</p>
-            </article>
+            <!-- EXÁMENES: ahora lleva a su propia página -->
+            <a href="index.php?page=examenes" class="servicio-link">
+                <article class="servicio servicio--clicable">
+                    <div class="servicio__imagen">
+                        <img src="../frontend/assets/img/rayosx.png" alt="Exámenes">
+                        <span class="servicio__etiqueta servicio__etiqueta--naranja">DIAGNÓSTICO</span>
+                    </div>
+                    <h3>Exámenes</h3>
+                    <p>Pruebas de laboratorio e imagen para apoyar el diagnóstico veterinario.</p>
+                </article>
+            </a>
 
-            <article class="servicio">
-                <div class="servicio__imagen">
-                    <img src="../frontend/assets/img/nutricion.png" alt="Nutrición">
-                    <span class="servicio__etiqueta servicio__etiqueta--verde">BIENESTAR</span>
-                </div>
-                <h3>Nutrición </h3>
-                <p>Planes alimenticios para mascotas con obesidad o necesidades especiales.</p>
-            </article>
-
-            <article class="servicio">
-                <div class="servicio__imagen">
-                    <img src="../frontend/assets/img/comportamiento.png" alt="Comportamiento">
-                    <span class="servicio__etiqueta servicio__etiqueta--morado">COMPORTAMIENTO</span>
-                </div>
-                <h3>Etología clínica</h3>
-                <p>Atención a problemas de conducta: ansiedad, agresividad, miedos y socialización.</p>
-            </article>
+            <!-- NUTRICIÓN -->
+            <a href="index.php?page=nutricion" class="servicio-link">
+                <article class="servicio servicio--clicable">
+                    <div class="servicio__imagen">
+                        <img src="../frontend/assets/img/nutricion.png" alt="Nutrición">
+                        <span class="servicio__etiqueta servicio__etiqueta--verde">BIENESTAR</span>
+                    </div>
+                    <h3>Nutrición</h3>
+                    <p>Planes alimenticios para mascotas con obesidad o necesidades especiales.</p>
+                </article>
+            </a>
         </div>
     </div>
 </main>
