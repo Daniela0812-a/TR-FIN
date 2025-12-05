@@ -9,7 +9,7 @@ Proyecto web académico en **PHP + PostgreSQL** para la gestión básica de un h
 - Recepción de mensajes de contacto.
 - Registro de hospitalizaciones.
 
----
+````
 
 ## 1. Tablas principales (PostgreSQL)
 
@@ -50,7 +50,7 @@ Proyecto web académico en **PHP + PostgreSQL** para la gestión básica de un h
         creado_en               TIMESTAMP    DEFAULT now()
     );
 
----
+`````
 
 ## 2. Descripción general
 
